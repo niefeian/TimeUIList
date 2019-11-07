@@ -1,0 +1,53 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - NFALunarUtil (0.0.2)
+  - NFAToolkit (0.0.5)
+  - Nimble (7.3.4)
+  - Nimble-Snapshots (6.3.0):
+    - Nimble-Snapshots/Core (= 6.3.0)
+  - Nimble-Snapshots/Core (6.3.0):
+    - FBSnapshotTestCase (~> 2.0)
+    - Nimble (~> 7.0)
+  - Quick (1.2.0)
+  - TimeUIList (0.0.1):
+    - NFALunarUtil
+    - NFAToolkit
+
+DEPENDENCIES:
+  - FBSnapshotTestCase (~> 2.1.4)
+  - NFALunarUtil
+  - NFAToolkit
+  - Nimble (~> 7.0)
+  - Nimble-Snapshots (~> 6.3.0)
+  - Quick (~> 1.2.0)
+  - TimeUIList (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+    - NFALunarUtil
+    - NFAToolkit
+    - Nimble
+    - Nimble-Snapshots
+    - Quick
+
+EXTERNAL SOURCES:
+  TimeUIList:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  NFALunarUtil: 4913c19c5e8f509c1840624f410562c9508fc6dd
+  NFAToolkit: 8fbf8a24c5d12ef956d89b21d7899ac05cab330b
+  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  TimeUIList: c5f433bf847f233078b134c8019b10f48937d1ed
+
+PODFILE CHECKSUM: 2512d107713c98eb7b73f8302207c83e062e05ae
+
+COCOAPODS: 1.8.4
