@@ -10,8 +10,9 @@ import NFALunarUtil
 import NFAToolkit
 
 
-open class OneTimeView: DateBaseView {
-   
+open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSource{
+    @IBOutlet weak var bgView: UIView!
+    
     @IBOutlet weak var typeBtn: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBAction func cancelBtn(_ sender: Any) {
@@ -63,6 +64,7 @@ open class OneTimeView: DateBaseView {
     open class func sharedInstance() -> OneTimeView {
         if instance == nil {
            instance = Bundle(for: self.classForCoder()).loadNibNamed("TimeUIList.bundle/OneTimeView", owner: self, options: nil)?.first as? OneTimeView
+            Tools.setCornerRadius(instance.bgView, rate: 10)
         }
         return instance
 
@@ -210,7 +212,11 @@ open class OneTimeView: DateBaseView {
            if noTimeodaa {
                 label.text =  timeodaa[row].subString(start: 0, length: timeodaa[row].count - 2)
            }else{
-                label.text =  timeodaa[row]
+                if segmentIndex == 0 {
+                    label.text =  timeodaa[row].subString(start: 0, length: timeodaa[row].count - 2)
+                }else{
+                    label.text =  timeodaa[row].subString(start: timeodaa[row].count - 2)
+                }
            }
        }
        label.textAlignment = .center

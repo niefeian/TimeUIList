@@ -19,8 +19,8 @@
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evl-YU-wcy">
                             <rect key="frame" x="0.0" y="60" width="373" height="318"/>
                             <connections>
-                                <outlet property="dataSource" destination="iN0-l3-epB" id="6Pg-BW-wj4"/>
-                                <outlet property="delegate" destination="iN0-l3-epB" id="blo-Tj-j6b"/>
+                                <outlet property="dataSource" destination="iN0-l3-epB" id="xDA-in-7hU"/>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="2tg-02-lVW"/>
                             </connections>
                         </pickerView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4J-9a-TCD">
@@ -109,13 +109,14 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.67000000000000004" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="NP7-I2-hIl" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="5x8-mM-CCH"/>
                 <constraint firstItem="NP7-I2-hIl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TWH-4I-AlP"/>
                 <constraint firstItem="NP7-I2-hIl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="etu-Cg-T9E"/>
             </constraints>
             <connections>
+                <outlet property="bgView" destination="NP7-I2-hIl" id="AQk-Qp-QWm"/>
                 <outlet property="pickerView" destination="Evl-YU-wcy" id="EVx-mb-laZ"/>
                 <outlet property="typeBtn" destination="ZMl-en-1Uz" id="dX9-RG-URO"/>
             </connections>
