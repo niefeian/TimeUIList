@@ -176,11 +176,11 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
    
    func getComponentWidth(by component: Int)->CGFloat{
        if component == 0  {
-           return AppWidth/4
+        return AppWidth*0.9/4
        }else if component == 3 {
-           return AppWidth - AppWidth/3 - AppWidth/4
+           return AppWidth*0.9 - AppWidth*0.9/3 - AppWidth*0.9/4
        }
-       return AppWidth/6
+       return AppWidth*0.9/6
    }
     
    func gregorianCalendar(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

@@ -19,27 +19,29 @@ open class DateBaseView: UIView {
     var row3 = 1
     var row4 = 0
     
-    var block : CBWithParam!
-    var noTimeodaa : Bool = false
+    public var block : CBWithParam!
+    public var noTimeodaa : Bool = false
     var segmentIndex : Int = 0
 
     //当年换农历
     let timeodaa = ["00:00-00:59早子","01:00-02:59丑时","03:00-04:59寅时","05:00-06:59卯时","07:00-08:59辰时","09:00-10:59巳时","11:00-12:59午时","13:00-14:59未时","15:00-16:59申时","17:00-18:59酉时","19:00-20:59戌时","21:00-22:59亥时","23:00-23:59晚子"]
+    
     let chineseMonths = ["正月","二月","三月","四月", "五月", "六月", "七月", "八月",
     "九月", "十月", "冬月", "腊月"]
+    
     let chineseDays = [ "初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十","十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十","廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七", "廿八", "廿九", "三十"]
     
     public func gotoDayTime(_ data : Date){
-              let str = DateUtil.dateToStrt(data)
-              let arr = str.components(separatedBy: "-")
-           if arr.count == 4 {
-               year = Int(arr[0]) ?? 2019
-               row2 = (Int(arr[1]) ?? 1)
-               row3 = (Int(arr[2]) ?? 1)
-               row4 = (((Int(arr[3]) ?? 0) + 1)/2)%timeodaa.count
-                reloadPickerView()
-           }
+        let str = DateUtil.dateToStrt(data)
+        let arr = str.components(separatedBy: "-")
+        if arr.count == 4 {
+            year = Int(arr[0]) ?? 2019
+            row2 = (Int(arr[1]) ?? 1)
+            row3 = (Int(arr[2]) ?? 1)
+            row4 = (((Int(arr[3]) ?? 0) + 1)/2)%timeodaa.count
+            reloadPickerView()
         }
+    }
     
     func reloadPickerView(){
        
