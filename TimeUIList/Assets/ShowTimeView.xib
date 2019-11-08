@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ShowTimeView" customModule="TimeUIList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUH-50-mJV">
+                    <rect key="frame" x="0.0" y="696" width="414" height="200"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="his-gG-mVZ">
+                            <rect key="frame" x="373" y="4" width="31" height="30"/>
+                            <state key="normal" title="确定">
+                                <color key="titleColor" red="0.80784313730000001" green="0.23921568630000001" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="config:" destination="iN0-l3-epB" eventType="touchUpInside" id="v3X-VU-iRg"/>
+                            </connections>
+                        </button>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-a4-WdB">
+                            <rect key="frame" x="0.0" y="34" width="414" height="166"/>
+                            <connections>
+                                <outlet property="dataSource" destination="iN0-l3-epB" id="Shw-FG-qdX"/>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="SBo-tI-h5r"/>
+                            </connections>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="nhx-a4-WdB" secondAttribute="trailing" id="FOv-7c-DnI"/>
+                        <constraint firstItem="nhx-a4-WdB" firstAttribute="leading" secondItem="rUH-50-mJV" secondAttribute="leading" id="Gzc-CY-fi9"/>
+                        <constraint firstItem="nhx-a4-WdB" firstAttribute="top" secondItem="his-gG-mVZ" secondAttribute="bottom" id="a3I-nb-DVn"/>
+                        <constraint firstAttribute="trailing" secondItem="his-gG-mVZ" secondAttribute="trailing" constant="10" id="gKW-Ey-3hc"/>
+                        <constraint firstAttribute="width" secondItem="rUH-50-mJV" secondAttribute="height" multiplier="375:181" id="mhs-9P-Zxb"/>
+                        <constraint firstAttribute="bottom" secondItem="nhx-a4-WdB" secondAttribute="bottom" id="yOk-Tf-86r"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34f-0J-ote">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.6524812940140845" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="o7F-KD-Ejs"/>
+                    </connections>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bHd-p5-HSR">
+                    <rect key="frame" x="10" y="701" width="121" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="b1v-qr-wXp"/>
+                        <constraint firstAttribute="width" constant="121" id="ihU-hA-bsg"/>
+                    </constraints>
+                    <segments>
+                        <segment title="阳历"/>
+                        <segment title="阴历"/>
+                    </segments>
+                    <color key="tintColor" red="0.80784313725490198" green="0.23921568627450979" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="segUpInside:" destination="iN0-l3-epB" eventType="valueChanged" id="KBQ-Nc-3CE"/>
+                    </connections>
+                </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-kK-e0X">
+                    <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="bHd-p5-HSR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="5XI-cf-Q16"/>
+                <constraint firstItem="AHp-kK-e0X" firstAttribute="top" secondItem="rUH-50-mJV" secondAttribute="bottom" id="5xG-bh-EjG"/>
+                <constraint firstAttribute="bottom" secondItem="rUH-50-mJV" secondAttribute="bottom" id="Jtn-Cx-umQ"/>
+                <constraint firstAttribute="trailing" secondItem="rUH-50-mJV" secondAttribute="trailing" id="Q0B-Rl-L91"/>
+                <constraint firstItem="his-gG-mVZ" firstAttribute="centerY" secondItem="bHd-p5-HSR" secondAttribute="centerY" id="R89-Bg-Jnq"/>
+                <constraint firstItem="34f-0J-ote" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tp7-HN-87o"/>
+                <constraint firstItem="rUH-50-mJV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cWq-s7-5tk"/>
+                <constraint firstItem="bHd-p5-HSR" firstAttribute="top" secondItem="34f-0J-ote" secondAttribute="bottom" constant="5" id="guM-oe-byo"/>
+                <constraint firstAttribute="trailing" secondItem="34f-0J-ote" secondAttribute="trailing" id="lbl-no-IX5"/>
+                <constraint firstItem="34f-0J-ote" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pWJ-Jw-zp4"/>
+                <constraint firstAttribute="bottom" secondItem="AHp-kK-e0X" secondAttribute="bottom" id="pfF-Q3-Roq"/>
+                <constraint firstAttribute="trailing" secondItem="AHp-kK-e0X" secondAttribute="trailing" id="vbl-Lf-CHC"/>
+                <constraint firstItem="AHp-kK-e0X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w6T-Py-rWS"/>
+                <constraint firstItem="rUH-50-mJV" firstAttribute="top" secondItem="34f-0J-ote" secondAttribute="bottom" id="wqa-Id-u6f"/>
+            </constraints>
+            <connections>
+                <outlet property="pickerView" destination="nhx-a4-WdB" id="HVg-Wk-euO"/>
+                <outlet property="segment" destination="bHd-p5-HSR" id="Baq-Hl-gjs"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="56.919642857142854"/>
+        </view>
+    </objects>
+</document>
