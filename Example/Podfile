@@ -12,5 +12,6 @@ target 'TimeUIList_Example' do
     pod 'Nimble-Snapshots' , '~> 6.3.0'
     pod 'NFALunarUtil'
     pod 'NFAToolkit'
+    pod 'NFATipsUI'
   end
 end

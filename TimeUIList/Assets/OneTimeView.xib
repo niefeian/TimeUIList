@@ -14,17 +14,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NP7-I2-hIl">
-                    <rect key="frame" x="20.5" y="229" width="373" height="438"/>
+                    <rect key="frame" x="20.5" y="323" width="373" height="250"/>
                     <subviews>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evl-YU-wcy">
-                            <rect key="frame" x="0.0" y="60" width="373" height="318"/>
+                            <rect key="frame" x="0.0" y="40" width="373" height="170"/>
                             <connections>
                                 <outlet property="dataSource" destination="iN0-l3-epB" id="xDA-in-7hU"/>
                                 <outlet property="delegate" destination="iN0-l3-epB" id="2tg-02-lVW"/>
                             </connections>
                         </pickerView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4J-9a-TCD">
-                            <rect key="frame" x="0.0" y="388" width="373" height="40"/>
+                            <rect key="frame" x="0.0" y="200" width="373" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyz-5z-t0M">
                                     <rect key="frame" x="213" y="0.0" width="70" height="40"/>
@@ -93,18 +93,18 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="250" id="08b-in-1ed"/>
                         <constraint firstAttribute="trailing" secondItem="rc5-bp-qA3" secondAttribute="trailing" id="2Jy-Ua-p0F"/>
                         <constraint firstItem="rc5-bp-qA3" firstAttribute="leading" secondItem="NP7-I2-hIl" secondAttribute="leading" id="5Vd-Ae-trT"/>
-                        <constraint firstItem="x4J-9a-TCD" firstAttribute="top" secondItem="Evl-YU-wcy" secondAttribute="bottom" constant="10" id="BWO-yh-f86"/>
+                        <constraint firstItem="x4J-9a-TCD" firstAttribute="top" secondItem="Evl-YU-wcy" secondAttribute="bottom" constant="-10" id="BWO-yh-f86"/>
                         <constraint firstItem="Evl-YU-wcy" firstAttribute="centerX" secondItem="NP7-I2-hIl" secondAttribute="centerX" id="OCA-Zt-Nj5"/>
                         <constraint firstItem="x4J-9a-TCD" firstAttribute="leading" secondItem="NP7-I2-hIl" secondAttribute="leading" id="RUr-zh-XFi"/>
                         <constraint firstAttribute="trailing" secondItem="x4J-9a-TCD" secondAttribute="trailing" id="Wnf-MI-KMH"/>
                         <constraint firstItem="rc5-bp-qA3" firstAttribute="top" secondItem="NP7-I2-hIl" secondAttribute="top" constant="10" id="eMn-QM-Xrb"/>
-                        <constraint firstAttribute="width" secondItem="NP7-I2-hIl" secondAttribute="height" multiplier="325:382" id="fep-YL-AMI"/>
                         <constraint firstItem="Evl-YU-wcy" firstAttribute="leading" secondItem="NP7-I2-hIl" secondAttribute="leading" id="ny9-Gp-CAd"/>
                         <constraint firstAttribute="bottom" secondItem="x4J-9a-TCD" secondAttribute="bottom" constant="10" id="otO-Ku-U3V"/>
                         <constraint firstItem="Evl-YU-wcy" firstAttribute="centerY" secondItem="NP7-I2-hIl" secondAttribute="centerY" id="pOi-FK-9oy"/>
-                        <constraint firstItem="Evl-YU-wcy" firstAttribute="top" secondItem="rc5-bp-qA3" secondAttribute="bottom" constant="10" id="yTc-ay-T0M"/>
+                        <constraint firstItem="Evl-YU-wcy" firstAttribute="top" secondItem="rc5-bp-qA3" secondAttribute="bottom" constant="-10" id="yTc-ay-T0M"/>
                         <constraint firstAttribute="trailing" secondItem="Evl-YU-wcy" secondAttribute="trailing" id="yuZ-p5-9ZT"/>
                     </constraints>
                 </view>

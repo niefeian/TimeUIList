@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TimeUIList'
-  s.version          = '0.0.5'
+  s.version          = '0.0.6'
   s.summary          = 'A short description of TimeUIList.'
 
 # This description is used to generate tags and improve search results.
@@ -41,4 +41,6 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'NFALunarUtil'
   s.dependency 'NFAToolkit'
+  s.dependency 'NFATipsUI'
+  
 end

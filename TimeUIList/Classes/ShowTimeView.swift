@@ -8,6 +8,7 @@
 import UIKit
 import NFALunarUtil
 import NFAToolkit
+import NFATipsUI
 
 open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSource{
     
@@ -39,7 +40,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
                 block?((self.getLunar(),timeodaa[row4],segment.selectedSegmentIndex) as AnyObject)
                 self.removeFromSuperview()
             }else{
-                
+                showTipsWindow("出生日期不能大于今天")
             }
         }
       

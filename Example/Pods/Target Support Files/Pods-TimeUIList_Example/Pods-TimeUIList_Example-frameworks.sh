@@ -162,11 +162,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/NFALunarUtil/NFALunarUtil.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/NFATipsUI/NFATipsUI.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NFAToolkit/NFAToolkit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TimeUIList/TimeUIList.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/NFALunarUtil/NFALunarUtil.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/NFATipsUI/NFATipsUI.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NFAToolkit/NFAToolkit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TimeUIList/TimeUIList.framework"
 fi
