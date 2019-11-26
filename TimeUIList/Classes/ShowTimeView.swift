@@ -69,7 +69,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
         pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
     }
     
-    override func reloadPickerView(){
+    override public func reloadPickerView(){
         pickerView.reloadAllComponents()
         pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
         pickerView.selectRow(row2 - 1, inComponent: 1, animated: false)

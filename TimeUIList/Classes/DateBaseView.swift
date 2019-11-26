@@ -43,7 +43,7 @@ open class DateBaseView: UIView {
         }
     }
     
-    func reloadPickerView(){
+    public func reloadPickerView(){
        
     }
     

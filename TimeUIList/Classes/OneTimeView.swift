@@ -74,7 +74,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
         pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
     }
        
-   override func reloadPickerView(){
+   override public func reloadPickerView(){
        pickerView.reloadAllComponents()
        pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
        pickerView.selectRow(row2 - 1, inComponent: 1, animated: false)
