@@ -10,8 +10,12 @@ import NFALunarUtil
 import NFAToolkit
 
 open class DateBaseView: UIView {
-
-    var year = 2019 - 30
+    
+    open var maxYear = 2020
+    open var minYear = 1940
+    open var year = 2020 - 30
+    open var forward = true
+    
     var lunarCalendarDic = [String:[Lunar]]()
     var lunarCalendarArr = [String]()
 
@@ -26,8 +30,7 @@ open class DateBaseView: UIView {
     //当年换农历
     let timeodaa = ["00:00-00:59早子","01:00-02:59丑时","03:00-04:59寅时","05:00-06:59卯时","07:00-08:59辰时","09:00-10:59巳时","11:00-12:59午时","13:00-14:59未时","15:00-16:59申时","17:00-18:59酉时","19:00-20:59戌时","21:00-22:59亥时","23:00-23:59晚子"]
     
-    let chineseMonths = ["正月","二月","三月","四月", "五月", "六月", "七月", "八月",
-    "九月", "十月", "冬月", "腊月"]
+    let chineseMonths = ["正月","二月","三月","四月", "五月", "六月", "七月", "八月","九月", "十月", "冬月", "腊月"]
     
     let chineseDays = [ "初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十","十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十","廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七", "廿八", "廿九", "三十"]
     
@@ -48,15 +51,17 @@ open class DateBaseView: UIView {
     }
     
     func reloadSolar(){
-        let key = lunarCalendarArr[row2-1]
-        if let solar = lunarCalendarDic[key]?[row3-1].solar {
-            let solarYear = Int(solar.solarYear)
-            let solarMonth = Int(solar.solarMonth)
-            let solarDay = Int(solar.solarDay)
-            row2 = solarMonth
-            row3 = solarDay
-            year = solarYear
-            reloadPickerView()
+        if lunarCalendarArr.count > row2-1 {
+            let key = lunarCalendarArr[row2-1]
+            if let solar = lunarCalendarDic[key]?[row3-1].solar {
+                let solarYear = Int(solar.solarYear)
+                let solarMonth = Int(solar.solarMonth)
+                let solarDay = Int(solar.solarDay)
+                row2 = solarMonth
+                row3 = solarDay
+                year = solarYear
+                reloadPickerView()
+            }
         }
     }
     
@@ -197,9 +202,9 @@ open class DateBaseView: UIView {
          let lunarMonths = lunarMonth > self.chineseMonths.count ? "" : self.chineseMonths[lunarMonth-1]
          let lunarDays = lunarDay > self.chineseDays.count ? "" : self.chineseDays[lunarDay-1]
          if lunar.isleap {
-             return "\(lunarYear.cn2)年闰\(lunarMonths)\(lunarDays)\(timeodaa[row4].subString(start: timeodaa[row4].count - 2))"
+             return "\(lunarYear.cn2)年闰\(lunarMonths)\(lunarDays) \(timeodaa[row4].subString(start: timeodaa[row4].count - 2))"
          }
-         return "\(lunarYear.cn2)年\(lunarMonths)\(lunarDays)\(timeodaa[row4].subString(start: timeodaa[row4].count - 2))"
+         return "\(lunarYear.cn2)年\(lunarMonths)\(lunarDays) \(timeodaa[row4].subString(start: timeodaa[row4].count - 2))"
          }
            return ""
      }
@@ -210,7 +215,7 @@ open class DateBaseView: UIView {
          let solarYear = Int(solar.solarYear)
          let solarMonth = Int(solar.solarMonth)
          let solarDay = Int(solar.solarDay)
-         return "\(solarYear)年\(solarMonth)月\(solarDay)日\(timeodaa[row4].subString(start: 0, length: timeodaa[row4].count - 2))"
+         return "\(solarYear)年\(solarMonth)月\(solarDay)日 \(timeodaa[row4].subString(start: 0, length: timeodaa[row4].count - 2))"
          }
            return ""
      }

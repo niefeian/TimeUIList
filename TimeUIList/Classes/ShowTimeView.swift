@@ -36,11 +36,14 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
                 strDate += "0\(solarDay) "
             }
             strDate += timeodaa[row4].subString(start: 0, length: 2) + ":00:00"
-            if DateUtil.dateTimeFromStr(strDate).timeIntervalSinceNow < 0 {
+            if DateUtil.dateTimeFromStr(strDate).timeIntervalSinceNow < 0 && forward{
                 block?((self.getLunar(),timeodaa[row4],segment.selectedSegmentIndex) as AnyObject)
                 self.removeFromSuperview()
-            }else{
+            }else if  DateUtil.dateTimeFromStr(strDate).timeIntervalSinceNow > 0 && forward{
                 showTipsWindow("出生日期不能大于今天")
+            } else{
+            block?((self.getLunar(),timeodaa[row4],segment.selectedSegmentIndex) as AnyObject)
+                self.removeFromSuperview()
             }
         }
       
@@ -66,12 +69,18 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
     }
     
     private func loadTime(){
-        pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
+        pickerView.selectRow(maxYear - year, inComponent: 0, animated: false)
+    }
+    
+    public func chengSegmentIndex(){
+        segment.selectedSegmentIndex = 0
+        segUpInside(segment)
     }
     
     override public func reloadPickerView(){
+       
         pickerView.reloadAllComponents()
-        pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
+        pickerView.selectRow(maxYear - year, inComponent: 0, animated: false)
         pickerView.selectRow(row2 - 1, inComponent: 1, animated: false)
         pickerView.selectRow(row3 - 1, inComponent: 2, animated: false)
         pickerView.selectRow(row4, inComponent: 3, animated: false)
@@ -93,7 +102,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
             return gregorianCalendar(pickerView, numberOfRowsInComponent: component)
         }
         if component == 0 {
-            return 100
+            return maxYear - minYear  + 1
         }else if component == 1 {
             return lunarCalendarArr.count
         }else if component == 2 {
@@ -116,7 +125,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
         label.font = UIFont.systemFont(ofSize: 15)
         label.frame = CGRect(x:0 ,y :0 ,width : getComponentWidth(by: component),height: 40)
         if component == 0 {
-            label.text =  "\(2019-row)年"
+            label.text =  "\(maxYear-row)年"
         }else if component == 1 {
              label.text =  lunarCalendarArr[row]
         }else if component == 2 {
@@ -144,7 +153,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
         
         switch component {
         case 0:
-            year = 2019 - row
+            year = maxYear - row
             reloadLunar()
             break
         case 1:
@@ -180,7 +189,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
      
     func gregorianCalendar(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
-            return 100
+            return maxYear - minYear + 1
         }else if component == 1 {
             return 12
         }else if component == 2 {
@@ -197,7 +206,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
         label.font = UIFont.systemFont(ofSize: 15)
         label.frame = CGRect(x:0 ,y :0 ,width : getComponentWidth(by: component),height: 40)
         if component == 0 {
-            label.text =  "\(2019-row)年"
+            label.text =  "\(maxYear-row)年"
         }else if component == 1 {
             label.text =  "\(1+row)月"
         }else if component == 2 {
@@ -217,7 +226,7 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
     func gregorianCalendar(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         switch component {
         case 0:
-            year = 2019 - row
+            year = maxYear - row
             break
         case 1:
             row2 = row + 1

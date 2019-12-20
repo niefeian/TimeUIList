@@ -98,7 +98,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
            return gregorianCalendar(pickerView, numberOfRowsInComponent: component)
        }
        if component == 0 {
-           return 100
+           return maxYear - minYear  + 1
        }else if component == 1 {
            return lunarCalendarArr.count
        }else if component == 2 {
@@ -185,7 +185,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
     
    func gregorianCalendar(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
        if component == 0 {
-           return 100
+          return maxYear - minYear  + 1
        }else if component == 1 {
            return 12
        }else if component == 2 {
