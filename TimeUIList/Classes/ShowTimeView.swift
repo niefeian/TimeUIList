@@ -82,7 +82,9 @@ open class ShowTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSour
         pickerView.reloadAllComponents()
         pickerView.selectRow(maxYear - year, inComponent: 0, animated: false)
         pickerView.selectRow(row2 - 1, inComponent: 1, animated: false)
-        pickerView.selectRow(row3 - 1, inComponent: 2, animated: false)
+        if  lunarCalendarArr.count > row2 - 1 && lunarCalendarDic[lunarCalendarArr[row2 - 1]]?.count ?? 0 > row3 - 1  && row3 - 1 >= 0{
+            pickerView.selectRow(row3 - 1 , inComponent: 2, animated: false)
+        }
         pickerView.selectRow(row4, inComponent: 3, animated: false)
     }
     
