@@ -11,8 +11,8 @@ import NFAToolkit
 import NFATipsUI
 
 open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSource{
-    @IBOutlet weak var bgView: UIView!
     
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var typeBtn: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBAction func cancelBtn(_ sender: Any) {
@@ -71,12 +71,12 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
     }
     
     private func loadTime(){
-        pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
+        pickerView.selectRow(maxYear - year, inComponent: 0, animated: false)
     }
        
    override public func reloadPickerView(){
        pickerView.reloadAllComponents()
-       pickerView.selectRow(2019 - year, inComponent: 0, animated: false)
+       pickerView.selectRow(maxYear - year, inComponent: 0, animated: false)
        pickerView.selectRow(row2 - 1, inComponent: 1, animated: false)
         if  lunarCalendarArr.count > row2 - 1 && lunarCalendarDic[lunarCalendarArr[row2 - 1]]?.count ?? 0 > row3 - 1  && row3 - 1 >= 0{
             pickerView.selectRow(row3 - 1 , inComponent: 2, animated: false)
@@ -123,7 +123,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
        label.font = UIFont.systemFont(ofSize: 15)
        label.frame = CGRect(x:0 ,y :0 ,width : getComponentWidth(by: component),height: 40)
        if component == 0 {
-           label.text =  "\(2019-row)年"
+           label.text =  "\(maxYear-row)年"
        }else if component == 1 {
             label.text =  lunarCalendarArr[row]
        }else if component == 2 {
@@ -151,7 +151,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
        
        switch component {
        case 0:
-           year = 2019 - row
+           year = maxYear - row
            reloadLunar()
            break
        case 1:
@@ -204,7 +204,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
        label.font = UIFont.systemFont(ofSize: 15)
        label.frame = CGRect(x:0 ,y :0 ,width : getComponentWidth(by: component),height: 40)
        if component == 0 {
-           label.text =  "\(2019-row)年"
+           label.text =  "\(maxYear-row)年"
        }else if component == 1 {
            label.text =  "\(1+row)月"
        }else if component == 2 {
@@ -228,7 +228,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
    func gregorianCalendar(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
        switch component {
        case 0:
-           year = 2019 - row
+           year = maxYear - row
            break
        case 1:
            row2 = row + 1

@@ -38,7 +38,7 @@ open class DateBaseView: UIView {
         let str = DateUtil.dateToStrt(data)
         let arr = str.components(separatedBy: "-")
         if arr.count == 4 {
-            year = Int(arr[0]) ?? 2019
+            year = Int(arr[0]) ?? maxYear
             row2 = (Int(arr[1]) ?? 1)
             row3 = (Int(arr[2]) ?? 1)
             row4 = (((Int(arr[3]) ?? 0) + 1)/2)%timeodaa.count
@@ -70,7 +70,7 @@ open class DateBaseView: UIView {
         lunarCalendarArr = [String]()
         if  let nowLunar =  CalendarDisplyManager.obtainLunar(from: Solar(year: Int32(year), andMonth: Int32(row2), andDay: Int32(row3))){
             year = Int(nowLunar.lunarYear)
-            if year <= 2019 - 100 {
+            if year <= maxYear - 100 {
                 year = 1920
             }
             //首先获得改年农历第一天 计算出各自公历的时间
