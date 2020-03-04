@@ -55,6 +55,7 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
             segmentIndex = 0
             typeBtn.setTitle("(公历)", for: UIControl.State.normal)
             reloadSolar()
+    
         }
     }
     

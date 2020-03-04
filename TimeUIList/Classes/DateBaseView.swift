@@ -68,7 +68,7 @@ open class DateBaseView: UIView {
     func reloadLunar(){
         lunarCalendarDic = [String:[Lunar]]()
         lunarCalendarArr = [String]()
-        if  let nowLunar =  CalendarDisplyManager.obtainLunar(from: Solar(year: Int32(year), andMonth: Int32(row2), andDay: Int32(row3))){
+        if  let nowLunar = CalendarDisplyManager.obtainLunar(from: Solar(year: Int32(year), andMonth: Int32(row2), andDay: Int32(row3))){
             year = Int(nowLunar.lunarYear)
             if year <= maxYear - 100 {
                 year = 1920
