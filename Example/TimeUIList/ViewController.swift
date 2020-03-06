@@ -7,12 +7,18 @@
 //
 
 import UIKit
-//import TimeUIList
+import TimeUIList
 class ViewController: UIViewController {
 
+    lazy var showOneTime : OneTimeView = {
+           let showTime =  OneTimeView.sharedInstance()
+           showTime.frame = UIScreen.main.bounds
+           return showTime
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let v =   OneTimeView.sharedInstance()
+        self.view.addSubview(showOneTime)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

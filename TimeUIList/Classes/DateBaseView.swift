@@ -26,6 +26,7 @@ open class DateBaseView: UIView {
     public var block : CBWithParam!
     public var noTimeodaa : Bool = false
     var segmentIndex : Int = 0
+    var loding = false
 
     //当年换农历
     let timeodaa = ["00:00-00:59早子","01:00-02:59丑时","03:00-04:59寅时","05:00-06:59卯时","07:00-08:59辰时","09:00-10:59巳时","11:00-12:59午时","13:00-14:59未时","15:00-16:59申时","17:00-18:59酉时","19:00-20:59戌时","21:00-22:59亥时","23:00-23:59晚子"]
@@ -66,8 +67,13 @@ open class DateBaseView: UIView {
     }
     
     func reloadLunar(){
+        if  loding {
+            return
+        }
+        loding = true
         lunarCalendarDic = [String:[Lunar]]()
         lunarCalendarArr = [String]()
+        let oldYear = year
         if  let nowLunar = CalendarDisplyManager.obtainLunar(from: Solar(year: Int32(year), andMonth: Int32(row2), andDay: Int32(row3))){
             year = Int(nowLunar.lunarYear)
             if year <= maxYear - 100 {
@@ -81,8 +87,6 @@ open class DateBaseView: UIView {
                     var fistSolarDay = fistDay.solarDay
                     let lastSolarMonth = lastDay.solarMonth
                     let lastSolarDay = lastDay.solarDay
-                    //一年有12个月 并且一年之内不会过两个年，所以 fistSolarYear > lastSolarYear 一定成立
-                    //                先算剩余年月
                     for month in fistSolarMonth...12{
                         let count = reDayCount2(fistSolarYear,month)
                         for day in fistSolarDay...count{
@@ -132,6 +136,10 @@ open class DateBaseView: UIView {
             row2 = Int(nowLunar.lunarMonth )
             row3 = Int(nowLunar.lunarDay )
             reloadPickerView()
+        }
+        loding = false
+        if year != oldYear {
+            reloadLunar()
         }
     }
     

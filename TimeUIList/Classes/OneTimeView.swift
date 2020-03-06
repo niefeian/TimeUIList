@@ -152,12 +152,17 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
        
        switch component {
        case 0:
-           year = maxYear - row
-           reloadLunar()
+            if year != maxYear - row {
+                year = maxYear - row
+                reloadLunar()
+            }
            break
        case 1:
-           row2 = row + 1
-           pickerView.reloadComponent(2)
+           
+           if row2 != row + 1 {
+                row2 = row + 1
+                pickerView.reloadComponent(2)
+           }
            break
        case 2:
            if row >= chineseDays.count{
@@ -232,8 +237,12 @@ open class OneTimeView: DateBaseView ,UIPickerViewDelegate,UIPickerViewDataSourc
            year = maxYear - row
            break
        case 1:
-           row2 = row + 1
-           pickerView.reloadComponent(2)
+         
+           if row2 != row + 1 {
+                row2 = row + 1
+                pickerView.reloadComponent(2)
+           }
+          
            break
        case 2:
            row3 = row + 1
