@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description  = <<-DESC
-         LZTool 是一个用于保存一些常用工具类的工具
+         xxx
   DESC
   s.homepage         = 'https://github.com/niefeian/TimeUIList'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'

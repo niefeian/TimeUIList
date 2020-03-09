@@ -19,7 +19,8 @@ public extension NSObject{
        if tipsView.tag == 999 &&  tipsView.alpha != 0 {
            return
        }
-       tipsView.backgroundColor = colorConversion(colorValue: "000000", alpha: 0.8)
+    tipsView.backgroundColor = UIColor.initString("000000", alpha: 0.8)
+//        colorConversion(colorValue: "000000", alpha: 0.8)
        tipsView.tag = 999
        AppWindow().addSubview(tipsView)
        tipsView.alpha = 0
