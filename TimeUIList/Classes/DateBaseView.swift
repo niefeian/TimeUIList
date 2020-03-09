@@ -52,16 +52,18 @@ open class DateBaseView: UIView {
     }
     
     func reloadSolar(){
-        if lunarCalendarArr.count > row2-1 {
+        if lunarCalendarArr.count > row2 - 1 {
             let key = lunarCalendarArr[row2-1]
-            if let solar = lunarCalendarDic[key]?[row3-1].solar {
-                let solarYear = Int(solar.solarYear)
-                let solarMonth = Int(solar.solarMonth)
-                let solarDay = Int(solar.solarDay)
-                row2 = solarMonth
-                row3 = solarDay
-                year = solarYear
-                reloadPickerView()
+            if lunarCalendarDic[key]?.count ?? 0 > row3-1 {
+                if let solar = lunarCalendarDic[key]?[row3-1].solar {
+                    let solarYear = Int(solar.solarYear)
+                    let solarMonth = Int(solar.solarMonth)
+                    let solarDay = Int(solar.solarDay)
+                    row2 = solarMonth
+                    row3 = solarDay
+                    year = solarYear
+                    reloadPickerView()
+                }
             }
         }
     }
@@ -173,11 +175,17 @@ open class DateBaseView: UIView {
     }
     
      
-     public func getLunar() -> Lunar?{
+    public func getLunar() -> Lunar?{
          if  segmentIndex == 0 {
              return CalendarDisplyManager.obtainLunar(from: Solar(year: Int32(year), andMonth: Int32(row2), andDay: Int32(row3)))
          }
-         return lunarCalendarDic[lunarCalendarArr[row2-1]]?[row3-1]
+        if row2 < 1 ||  row3 < 1 || lunarCalendarArr.count <= row2-1{
+            return nil
+        }
+        if lunarCalendarDic[lunarCalendarArr[row2-1]]?.count ?? 0 <= row3-1 {
+            return nil
+        }
+        return lunarCalendarDic[lunarCalendarArr[row2-1]]?[row3-1]
      }
      
      public func getShowTime() -> String{
