@@ -36,14 +36,18 @@ open class DateBaseView: UIView {
     let chineseDays = [ "初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十","十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十","廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七", "廿八", "廿九", "三十"]
     
     public func gotoDayTime(_ data : Date){
-        let str = DateUtil.dateToStrt(data)
-        let arr = str.components(separatedBy: "-")
-        if arr.count == 4 {
-            year = Int(arr[0]) ?? maxYear
-            row2 = (Int(arr[1]) ?? 1)
-            row3 = (Int(arr[2]) ?? 1)
-            row4 = (((Int(arr[3]) ?? 0) + 1)/2)%timeodaa.count
-            reloadPickerView()
+        if segmentIndex == 0 {
+            let str = DateUtil.dateToStrt(data)
+            let arr = str.components(separatedBy: "-")
+            if arr.count == 4 {
+                year = Int(arr[0]) ?? maxYear
+                row2 = (Int(arr[1]) ?? 1)
+                row3 = (Int(arr[2]) ?? 1)
+                row4 = (((Int(arr[3]) ?? 0) + 1)/2)%timeodaa.count
+                reloadPickerView()
+            }
+        }else{
+            //农历的先不处理
         }
     }
     
