@@ -20,7 +20,13 @@ open class DateBaseView: UIView {
     var lunarCalendarArr = [String]()
 
     var row2 = 1
-    var row3 = 1
+    var row3 = 1{
+        didSet{
+            if row3 < 1 {
+                row3 = 1
+            }
+        }
+    }
     var row4 = 0
     
     public var block : CBWithParam!
