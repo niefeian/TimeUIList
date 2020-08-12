@@ -155,6 +155,8 @@ open class DateBaseView: UIView {
         }
     }
     
+    
+    
     func reDayCount2(_ years : Int32 ,_ month : Int32) -> Int32 {
         if [1,3,5,7,8,10,12].contains(month){
             return 31
@@ -264,7 +266,7 @@ open class DateBaseView: UIView {
                  strDate += "0\(solarDay) "
              }
              strDate += timeodaa[row4].subString(start: 0, length: 2) + ":00:00"
-             return  "\(DateUtil.dateTimeFromStr(strDate).timeIntervalSince1970)"
+             return  "\(Int(DateUtil.dateTimeFromStr(strDate).timeIntervalSince1970))"
          }
          return ""
      }

@@ -1,6 +1,6 @@
 {
   "name": "TimeUIList",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "summary": "A short description of TimeUIList.",
   "description": "xxx",
   "homepage": "https://github.com/niefeian/TimeUIList",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/niefeian/TimeUIList.git",
-    "tag": "0.0.16"
+    "tag": "0.0.17"
   },
   "swift_versions": "5.0",
   "platforms": {
@@ -33,6 +33,12 @@
 
     ],
     "NFATipsUI": [
+
+    ],
+    "SwiftProjects": [
+
+    ],
+    "SnapKit": [
 
     ]
   },

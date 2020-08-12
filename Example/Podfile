@@ -10,8 +10,12 @@ target 'TimeUIList_Example' do
     pod 'Nimble', '~> 7.0'
     pod 'FBSnapshotTestCase' , '~> 2.1.4'
     pod 'Nimble-Snapshots' , '~> 6.3.0'
+    pod 'SnapKit'  , '~> 4.2.0'
+    
     pod 'NFALunarUtil'
     pod 'NFAToolkit'
     pod 'NFATipsUI'
+    pod 'SwiftProjects'
+     
   end
 end

@@ -1,0 +1,6 @@
+framework module SwiftProjects {
+  umbrella header "SwiftProjects-umbrella.h"
+
+  export *
+  module * { export * }
+}

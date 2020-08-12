@@ -8,6 +8,9 @@
 
 import UIKit
 import TimeUIList
+import SwiftProjects
+import NFAToolkit
+
 class ViewController: UIViewController {
 
     lazy var showOneTime : OneTimeView = {
@@ -18,7 +21,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(showOneTime)
+
+        Tools.delay(1) {
+            let pop =  PopupController.create(self)?.customize([ .animation(.none), .scrollable(false), .backgroundStyle(.blackFilter(alpha: 0.3)) ])
+            let vw = TimePopView()
+            vw.initializeData()
+//            vw.minimumDate = Date()
+            vw.regCallBack {(data) in
+                pop?.dismiss()
+            }
+            pop?.show(vw)
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
